@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>anemone</title>
     <subtitle>A minimalist Zola theme that prioritizes clean CSS and avoids heavy JavaScript. Enjoy a seamless user experience with lightning-fast load times. Let your content take center stage in a clutter-free, elegant design that enhances readability. Responsive and efficient, anemone brings focus to your ideas.</subtitle>
-    <link href="https://anemone.pages.dev/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="https://anemone.pages.dev"/>
+    <link href="aaron404.github.io/blog-site/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="aaron404.github.io/blog-site"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2024-06-20T00:00:00+00:00</updated>
-    <id>https://anemone.pages.dev/atom.xml</id>
+    <id>aaron404.github.io/blog-site/atom.xml</id>
     <entry xml:lang="en">
         <title>Personal journal</title>
         <published>2024-06-20T00:00:00+00:00</published>
@@ -14,8 +14,8 @@
         <author>
           <name>Unknown</name>
         </author>
-        <link rel="alternate" href="https://anemone.pages.dev/journal/" type="text/html"/>
-        <id>https://anemone.pages.dev/journal/</id>
+        <link rel="alternate" href="aaron404.github.io/blog-site/journal/" type="text/html"/>
+        <id>aaron404.github.io/blog-site/journal/</id>
         
         <content type="html">&lt;h2 id=&quot;2024-06-20-blog-is-live-wrench&quot;&gt;2024-06-20 - Blog is live! 🔧&lt;&#x2F;h2&gt;
 &lt;p&gt;I have been wanting to try blogging for several years now and finally took the time to do some research on the subject. For now I’ve settled on a markdown-based static site generator called Zola, featuring the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Speyll&#x2F;anemone&quot;&gt;anemone&lt;&#x2F;a&gt; theme. I plan to use this blog to document some of my hobby projects. Some of my interests you can expect to hear about are programming, computer graphics, and maybe some music.&lt;&#x2F;p&gt;
@@ -29,10 +29,10 @@
         <author>
           <name>Unknown</name>
         </author>
-        <link rel="alternate" href="https://anemone.pages.dev/blog/dnd-pt1/" type="text/html"/>
-        <id>https://anemone.pages.dev/blog/dnd-pt1/</id>
+        <link rel="alternate" href="aaron404.github.io/blog-site/blog/dnd-pt1/" type="text/html"/>
+        <id>aaron404.github.io/blog-site/blog/dnd-pt1/</id>
         
-        <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt1&#x2F;#introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+        <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt1&#x2F;#introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;Dungeons and Diagrams (henceforth referred to as DnD) is a minigame in Last Call BBS, the (unfortunately) final puzzle game released by Zachtronics before closing their studio to pursue other ventures. DnD is a logic game where the objective is to fill out an 8x8 grid with walls such that it forms a single contiguous open region along with a few other simple constraints. The game includes 63 curated puzzles of increasing difficulty for the player to solve, as well as an “infinite” mode that has 100 million randomly seeded puzzles of varying difficulty.&lt;&#x2F;p&gt;
 &lt;div class=&quot;textCenter&quot; &gt;
   &lt;img src=&quot;..&amp;#x2F;..&amp;#x2F;assets&amp;#x2F;dnd&amp;#x2F;game.png&quot; alt=&quot;Last Call BBS screenshot&quot; &gt;
@@ -40,7 +40,7 @@
 &lt;&#x2F;div&gt;
 &lt;p&gt;With some effort (the difficulty gets very high!) I manually solved the 63 curated puzzles, and approximately 170 of the seeded puzzles. As an avid Factorio enjoyer, I couldn’t help imagining how fun it would be to automate this game watch it play itself. I am writing this blog series to scratch that itch, as well as to provide something of a reference for anyone else who’s interested in game automation. There’s a lot to cover so I will split it into a few separate posts, and I’ll try to keep it interesting with lots of images. This post will cover the setup required to programmatically view pixels from the game and perform mouse and keyboard input.&lt;&#x2F;p&gt;
 &lt;p&gt;I am writing my solver in Rust, running on Ubuntu 24.04. If you are on Windows or Mac, worry not, as I hope to make my implementation as platform-agnostic as possible.&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;objectives&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt1&#x2F;#objectives&quot;&gt;Objectives&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;objectives&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt1&#x2F;#objectives&quot;&gt;Objectives&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;Before we get into the weeds, I’d like to set out my objectives for both this and subsequent posts. In this post, I would like to produce a program which can achieve the following:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;Find a window on the deskop given it’s title, in this case “Last Call BBS”.&lt;&#x2F;li&gt;
@@ -56,7 +56,7 @@
 &lt;li&gt;Solving the game with FACTS and LOGIC&lt;&#x2F;li&gt;
 &lt;li&gt;Generating my own puzzles (including much larger grid sizes)&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;h1 id=&quot;the-game&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt1&#x2F;#the-game&quot;&gt;The Game&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;the-game&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt1&#x2F;#the-game&quot;&gt;The Game&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;This game-within-a-game is reaching dangerous levels of niche, so it’d probably be best to kick things off with a brief introduction to the game’s rules and mechanics. The game provides the following tutorial (it is nicely animated in game, but I’ve snagged screenshots for your convenience):&lt;&#x2F;p&gt;
 &lt;div class=&quot;textCenter&quot; &gt;
   &lt;img src=&quot;..&amp;#x2F;..&amp;#x2F;assets&amp;#x2F;dnd&amp;#x2F;tutorial.png&quot; alt=&quot;Dungeons and Diagrams tutorial&quot; &gt;
@@ -70,9 +70,9 @@
 - Hallways are always one space wide. Outside of treasure rooms there will never be a 2x2 block of empty spaces.
 - Place all the walls correctly to solve the puzzle and unlock more! --&gt;
 &lt;p&gt;If the rules aren’t totally clear yet, I will elaborate on them in a future post where I implement the solver. For now just know that the player has to place the walls in the grid such that the above constraints are met. Each puzzle has a unique solution which can be derived through repeated application of the rules above. The game also encourages the player to use path markers (the red gems) to help keep track and assist in further deduction. Now, let’s get started!&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;capturing-the-screen&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt1&#x2F;#capturing-the-screen&quot;&gt;Capturing the Screen&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;capturing-the-screen&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt1&#x2F;#capturing-the-screen&quot;&gt;Capturing the Screen&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;Before we get into parsing the game state and simulating the player, we need a way to capture the pixels of the game and send user input back in response. There are many rust crates to accomplish these tasks, but I have chosen &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;nashaofu&#x2F;xcap&quot;&gt;&lt;code&gt;xcap&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; for window queries and screen capture, and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;enigo-rs&#x2F;enigo&quot;&gt;&lt;code&gt;enigo&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; (this required installing libxdo as well) for user input. Both of these libraries claim to be cross-platform, so they should work on Windows and Mac as well.&lt;&#x2F;p&gt;
-&lt;p&gt;Now, if you looked closely at the image in the &lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt1&#x2F;#introduction&quot;&gt;introduction&lt;&#x2F;a&gt;, you may have noticed that is has a screen distortion effect applied, which would make it difficult to reliably detect colors and positions of image features. It also has 2x pixel scaling, so there is a lot of redundant data in the image. Luckily both of these can be solved by modifying the graphics settings for the game.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, if you looked closely at the image in the &lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt1&#x2F;#introduction&quot;&gt;introduction&lt;&#x2F;a&gt;, you may have noticed that is has a screen distortion effect applied, which would make it difficult to reliably detect colors and positions of image features. It also has 2x pixel scaling, so there is a lot of redundant data in the image. Luckily both of these can be solved by modifying the graphics settings for the game.&lt;&#x2F;p&gt;
 &lt;div class=&quot;textCenter&quot; &gt;
   &lt;img src=&quot;..&amp;#x2F;..&amp;#x2F;assets&amp;#x2F;dnd&amp;#x2F;settings.png&quot; alt=&quot;asdf&quot; &gt;
   
@@ -134,7 +134,7 @@
   
 &lt;&#x2F;div&gt;
 &lt;p&gt;This performs as expected, with a small caveat that it seems to require the mouse to already be above the Last Call BBS window or else the movement and click don’t register. I believe this is likely a bug with Enigo, but for now I’ll live with the limitation as it’s pretty minor.&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;error-handling&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt1&#x2F;#error-handling&quot;&gt;Error handling&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;error-handling&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt1&#x2F;#error-handling&quot;&gt;Error handling&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;Let’s remove those unsightly &lt;code&gt;unwrap&lt;&#x2F;code&gt; calls, and put some proper error handling in place. Almost every action I perform here is falliable. I’m going to wrap them into a custom &lt;code&gt;InitError&lt;&#x2F;code&gt;, describing things that could go wrong during program initialization. At the same time, I’m going to wrap this functionality into a new struct &lt;code&gt;DungeonCrawler&lt;&#x2F;code&gt; that will store some persistent data for later use. Lastly, it will be important to know where the Dungeons and Diagrams subwindow is located with respect to the main game window, so I’ll add a function to locate that offset.&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#282c34;color:#abb2bf;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e06c75;&quot;&gt;derive&lt;&#x2F;span&gt;&lt;span&gt;(Debug)]
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c678dd;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span&gt;InitError {
@@ -153,7 +153,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;}
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;This may not be the perfect way to do error handling in Rust. I am no expert, but I have found this to be a pretty concise and ergonomic way of working with them (in tandem with the &lt;code&gt;?&lt;&#x2F;code&gt; operator). All errors will eventually bubble up to &lt;code&gt;main()&lt;&#x2F;code&gt; where the program will print the error and exit gracefully. Now on to the &lt;code&gt;DungeonCrawler&lt;&#x2F;code&gt; implementation.&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;getting-ready-for-parsing&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt1&#x2F;#getting-ready-for-parsing&quot;&gt;Getting Ready for Parsing&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;getting-ready-for-parsing&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt1&#x2F;#getting-ready-for-parsing&quot;&gt;Getting Ready for Parsing&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;This is pretty similar to the test application we saw earlier. Notable additions are the call to &lt;code&gt;find_dnd_offset&lt;&#x2F;code&gt; which looks for the DnD window, and a call to &lt;code&gt;img.view()&lt;&#x2F;code&gt; to save a cropped screenshot containing only the DnD window. Saving the images to disk is not really necessary, but it may be useful for debugging in the future so it doesn’t hurt. At the end of initialization, I also &lt;code&gt;click(0, 0)&lt;&#x2F;code&gt; which forces the window to capture the mouse, working around the caveat I mentioned earlier.&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#282c34;color:#abb2bf;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#c678dd;&quot;&gt;struct &lt;&#x2F;span&gt;&lt;span&gt;DungeonCrawler {
 &lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e06c75;&quot;&gt;enigo&lt;&#x2F;span&gt;&lt;span&gt;: Enigo,
@@ -272,7 +272,7 @@
   
 &lt;&#x2F;div&gt;
 &lt;p&gt;From this point on, I can use this offset to normalize my coordinates to the DnD window. I don’t care where the game client is located on my monitor, and I don’t care where the DnD window is located within the game client.&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;speedtest&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt1&#x2F;#speedtest&quot;&gt;Speedtest&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;speedtest&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt1&#x2F;#speedtest&quot;&gt;Speedtest&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;With the DnD window offset calculated, I can now put a test together to see how quickly I can click all the squares. A good starting benchmark would be to fill in all the grid cells in under a second. With 64 cells to click (ignoring monsters and treasure for now), that gives me an upper bound of ~15.6 milliseconds per click. I am worried that if I click too fast, the game won’t keep up and the game state will get out of sync with my program. To test the reliability of the speed, I will set a click delay and loop over all the tiles a few times, seeing if any clicks are missed. Once I find the speed where clicks are dropped, I can back it off with a safe margin and then hope for the best!&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#282c34;color:#abb2bf;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#c678dd;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d19a66;&quot;&gt;CLICK_DELAY&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c678dd;&quot;&gt;u64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d19a66;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;;
 &lt;&#x2F;span&gt;&lt;span&gt;
@@ -325,10 +325,10 @@
         <author>
           <name>Unknown</name>
         </author>
-        <link rel="alternate" href="https://anemone.pages.dev/blog/dnd-pt2/" type="text/html"/>
-        <id>https://anemone.pages.dev/blog/dnd-pt2/</id>
+        <link rel="alternate" href="aaron404.github.io/blog-site/blog/dnd-pt2/" type="text/html"/>
+        <id>aaron404.github.io/blog-site/blog/dnd-pt2/</id>
         
-        <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt2&#x2F;#introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+        <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt2&#x2F;#introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;Last time I laid the foundation for game state parsing, namely reading pixels from the screen and normalizing the coordinate system so we don’t have to worry about the rest of the screen outside the DnD window. Today I’d like to go from a screenshot to a representation that I can use in Rust. With that said, my objectives for today are:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;Detect tile contents (Empty, Treasure, or Monster)&lt;&#x2F;li&gt;
@@ -337,10 +337,10 @@
 &lt;li&gt;Read and write the board state to a file&lt;&#x2F;li&gt;
 &lt;li&gt;(Bonus) Create a catologue of puzzles that I can use for offline testing&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;h1 id=&quot;the-game-state&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt2&#x2F;#The-game-state&quot;&gt;The Game State&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;the-game-state&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt2&#x2F;#The-game-state&quot;&gt;The Game State&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;The critical pieces of information we need from the game are the numbers along the top and left edges of the board, and the positions of monsters and treasure chests. For now I will operate under the assumption that the player hasn’t placed any walls or path markers yet (they could have been placed incorrectly and it will throw off the solver), so tiles can only be in one of the following states - &lt;code&gt;Monster&lt;&#x2F;code&gt;, &lt;code&gt;Treasure&lt;&#x2F;code&gt;, or &lt;code&gt;Empty&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;Reading the state of the board can be done in two ways. The direct approach is to attach a debugger to the process and scan its memory for the relevant data. I have done this before with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cheatengine.org&#x2F;&quot;&gt;Cheat Engine&lt;&#x2F;a&gt; and it could probably be done with a simple process memory dump as well. I may return to this idea in the future, but for now I will use the other method of capturing a screenshot of the running game and observing the pixel values in order to deduce the information I need. &lt;&#x2F;p&gt;
-&lt;p&gt;If you looked closely at the image in the &lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt2&#x2F;#introduction&quot;&gt;introduction&lt;&#x2F;a&gt;, you may have noticed that is has a screen distortion effect applied, which would make it difficult to reliably detect colors and positions of image features. It also has 2x pixel scaling, so there is a lot of redundant data in the image. Luckily both of these can be solved by modifying the graphics settings for the game.&lt;&#x2F;p&gt;
+&lt;p&gt;If you looked closely at the image in the &lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt2&#x2F;#introduction&quot;&gt;introduction&lt;&#x2F;a&gt;, you may have noticed that is has a screen distortion effect applied, which would make it difficult to reliably detect colors and positions of image features. It also has 2x pixel scaling, so there is a lot of redundant data in the image. Luckily both of these can be solved by modifying the graphics settings for the game.&lt;&#x2F;p&gt;
 &lt;div class=&quot;textCenter&quot; &gt;
   &lt;img src=&quot;..&amp;#x2F;..&amp;#x2F;assets&amp;#x2F;dnd&amp;#x2F;settings.png&quot; alt=&quot;asdf&quot; &gt;
   
@@ -351,7 +351,7 @@
   
 &lt;&#x2F;div&gt;
 &lt;p&gt;The result is a game window with 1:1 pixel sizes and no distortion. The downside is that it makes it a tiny window on my monitor, requiring me to sit pretty close to the screen if I am playing it manually. Luckily, if all goes to plan, the game will soon be playing itself!&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;let-s-start-coding&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;dnd-pt2&#x2F;#lets-start-coding&quot;&gt;Let’s start coding&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;let-s-start-coding&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;dnd-pt2&#x2F;#lets-start-coding&quot;&gt;Let’s start coding&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;Very quickly before I get into the code, I’ll highlight a few objectives for this post. I need a program which can do the following:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;Find a window on the deskop given it’s title, in this case “Last Call BBS”.&lt;&#x2F;li&gt;
@@ -417,16 +417,16 @@
         <author>
           <name>Unknown</name>
         </author>
-        <link rel="alternate" href="https://anemone.pages.dev/blog/incomplete/just-clear-all/" type="text/html"/>
-        <id>https://anemone.pages.dev/blog/incomplete/just-clear-all/</id>
+        <link rel="alternate" href="aaron404.github.io/blog-site/blog/incomplete/just-clear-all/" type="text/html"/>
+        <id>aaron404.github.io/blog-site/blog/incomplete/just-clear-all/</id>
         
-        <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+        <content type="html">&lt;h1 id=&quot;introduction&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;Just Clear All&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; is a puzzle game release for mobile devices by Veewo in 2015. The rules are quite simple but it lends itself to some emergent complexity that makes it difficult or impossible to complete the game without guessing. Clicking on a number will collapse it and all the contiguous same-number tiles into a new single tile with the value incremented by 1. After the old tiles are deleted, all the blocks settle downwards as if by gravity, and any empty columns are also shuffled to the right. The player gains points through each move and earns large amounts of bonus points based on how many tiles have been removed by the time you have no more valid moves available. &lt;&#x2F;p&gt;
 &lt;p&gt;I thought it would be fun to solve computationally, and in 2015 I did just that with a crude Python script. It was extremely slow and struggled to run to completion for all but the simplest of puzzle inputs, but it “worked”. I am now revisiting this puzzle with a few more years of experience under my belt, and the performance of a proper systems language (Rust). With this blog post, I intend to come up with a naive solution and find out how much profiling and optimization is needed. Subsequent efforts will follow in future blog posts.&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;reading-the-game-state&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#game-state&quot;&gt;Reading the game state&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;reading-the-game-state&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#game-state&quot;&gt;Reading the game state&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;The first step in solving any puzzle programatically is to find a way represent the game state in your program. Since the game takes the shape of an 8x8 grid of small numbers, I have chosen a 2d array of bytes. In my original Python solution, I initially captured the game state by starting a game on my phone, and manually typing the numbers into an array in the script. I’m sure you’ll believe me when I say this got old very quickly. I figured I could probably just use the Python Imaging Library to look at the pixels RGB values and make a pretty good guess of the digit, but upon closer inspection I noticed there was some subtle variation in the colors which put me off of that method temporarily.&lt;&#x2F;p&gt;
 &lt;p&gt;You might be asking yourself something like: “Why don’t you just randomly generate numbers for each cell between some lower and upper bound?”. Well, I did try this, but I found the distribution of the numbers didn’t quite “feel” the same as what was presented in the game. It created a large number of small islands rather than what I percieved in the game to be a small number of medium-large islands.&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;the-old-way&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#the-old-way&quot;&gt;The old way&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;the-old-way&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#the-old-way&quot;&gt;The old way&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;It is a common problem for inexperienced programmers to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Anchoring_effect&quot;&gt;anchor&lt;&#x2F;a&gt; to the first solution they think of and assume it is the only way to do something. At the time I was no exception. In a moment of youthful enthusiasm, I came up with a truly bizarre and convoluted solution which I will briefly describe here for comedic effect. My original solution was:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;Using the Android Debug Bridge (ADB), programatically capture a screenshot of the game&lt;&#x2F;li&gt;
@@ -462,13 +462,13 @@
 &lt;&#x2F;span&gt;&lt;span&gt;}
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;This method completely eliminated any parsing errors that I was having from using OCR, and I was considering using the same method for my Rust version, until another thought crossed my mind…&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;the-new-way&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#the-new-way&quot;&gt;The new way&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;the-new-way&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#the-new-way&quot;&gt;The new way&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;Since the app is no longer available on the Android Play Store, I resorted to pulling the .apk file from an online repository and side-loaded it onto my phone. The game is a bit glitchy (it targets Android version 3!), but generally works and issues can be fixed by restarting the app. I wondered though, if I had access to the .apk, surely I should be able to poke around inside it and find out how the level generation is done. If I could figure that out, I could simply generate puzzles on demand, without even needing to run the app!&lt;&#x2F;p&gt;
 &lt;p&gt;I searched online for “.apk disassembly tools” and found the bespoke &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;apktool.org&#x2F;&quot;&gt;&lt;code&gt;apktool&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;. After using this to extract the .apk file, I was pleasantly suprised to find the entire source code of the game in front of my eyes. After an hour or so of wading through the source code, I was able to completely recreate the puzzle generation in Rust, without the need to launch the app or look at any pixels. This is a seriously good starting point, as I can now quickly generate millions of puzzles which I can use to analyze solutions statistically. I won’t show the code as I believe there may be some copyright issues since it is based on the closed source of a commercial project, but I can describe it.&lt;&#x2F;p&gt;
 &lt;p&gt;The “just generate random numbers!” solution I mentioned above actually wasn’t too far off, and the clever reader may have taken it a step further to suggest “maybe instead of uniform random, we should use weighted random”. This is the key that makes all the difference. In the source code I found the weights and replicated them in my own program. I generate 64 weighted random numbers, and then manually override a random tile with a “heavy” block. Each puzzle has one of these which is higher-valued than all the other tiles.&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;solving-the-puzzle&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#solving-the-puzzle&quot;&gt;Solving the puzzle&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;solving-the-puzzle&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#solving-the-puzzle&quot;&gt;Solving the puzzle&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 &lt;p&gt;Let’s start by quickly setting the stage - what do I mean by “solve” the puzzle? In the context of the game, the only objective is to earn the most points. A fun side goal is to collapse all the numbers into a single remaining tile. Generally speaking, reducing all the tiles to a single one will also generate a high amount of points, but it won’t necessarily be the MOST points. For my solver, I am strictly concerned with getting the most points, disregarding the number of remaining tiles.&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;scoring&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#scoring&quot;&gt;Scoring&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;scoring&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#scoring&quot;&gt;Scoring&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;The score for a game is the sum of the scores for each move, plus a bonus at the end for the number of tiles cleared. Each move is scored as follows:&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#282c34;color:#abb2bf;&quot;&gt;&lt;code&gt;&lt;span&gt;multiplier = 1 + floor(number &#x2F; 5)
 &lt;&#x2F;span&gt;&lt;span&gt;move_score = island_size * number * 5 * multiplier
@@ -477,7 +477,7 @@
 &lt;pre style=&quot;background-color:#282c34;color:#abb2bf;&quot;&gt;&lt;code&gt;&lt;span&gt;bonus = [500, 250, 200, 150, 100, 50][num_tiles - 1] * (level + 1)
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Here we assume the number of remaining tiles is 6 or fewer. If the count of remaining tiles is higher than 6, no bonus is awarded for that level.&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;making-a-move&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#making-a-move&quot;&gt;Making a move&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;making-a-move&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#making-a-move&quot;&gt;Making a move&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;A single move in the game involves selecting any of the non-empty tiles remaining which has an island size of 2 or more. Tapping that tile will initiate a collapse, increment, and add some points to your score. Implementing this in code requires us to do the following steps:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;Compute the set of tiles within the island we selected (via floodfill)&lt;&#x2F;li&gt;
@@ -487,8 +487,8 @@
 &lt;li&gt;Update our score&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;After all of that, we will be left with a new game state which we can recursively make moves on, thus performing a depth-first search through the game tree, not unlike a chess engine. After each move, we can check if the score is higher than our current best, and if so output a message to the console. This way we will have realtime feedback on the best-so-far solution and its score. If the program runs to completion, it will have exhaustively searched all possible sequences of moves and the output will be globally optimal. Until then, however, we may be left with only a good-but-not-perfect solution.&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;profiling&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#profiling&quot;&gt;Profiling&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
-&lt;h1 id=&quot;low-hanging-fruit&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anemone.pages.dev&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#low-hanging-fruit&quot;&gt;Low-hanging Fruit&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;profiling&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#profiling&quot;&gt;Profiling&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;low-hanging-fruit&quot;&gt;&lt;a href=&quot;aaron404.github.io&#x2F;blog-site&#x2F;blog&#x2F;incomplete&#x2F;just-clear-all&#x2F;#low-hanging-fruit&quot;&gt;Low-hanging Fruit&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
 </content>
         
     </entry>

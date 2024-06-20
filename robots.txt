@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://anemone.pages.dev/sitemap.xml
+Sitemap: aaron404.github.io/blog-site/sitemap.xml

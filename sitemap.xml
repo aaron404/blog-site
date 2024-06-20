@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://anemone.pages.dev/</loc>
+        <loc>aaron404.github.io/blog-site/</loc>
     </url>
     <url>
-        <loc>https://anemone.pages.dev/blog/</loc>
+        <loc>aaron404.github.io/blog-site/blog/</loc>
     </url>
     <url>
-        <loc>https://anemone.pages.dev/blog/dnd-pt1/</loc>
+        <loc>aaron404.github.io/blog-site/blog/dnd-pt1/</loc>
         <lastmod>2024-06-18</lastmod>
     </url>
     <url>
-        <loc>https://anemone.pages.dev/blog/dnd-pt2/</loc>
+        <loc>aaron404.github.io/blog-site/blog/dnd-pt2/</loc>
         <lastmod>2024-06-18</lastmod>
     </url>
     <url>
-        <loc>https://anemone.pages.dev/blog/incomplete/just-clear-all/</loc>
+        <loc>aaron404.github.io/blog-site/blog/incomplete/just-clear-all/</loc>
         <lastmod>2024-02-26</lastmod>
     </url>
     <url>
-        <loc>https://anemone.pages.dev/blog/page/1/</loc>
+        <loc>aaron404.github.io/blog-site/blog/page/1/</loc>
     </url>
     <url>
-        <loc>https://anemone.pages.dev/fr/</loc>
+        <loc>aaron404.github.io/blog-site/fr/</loc>
     </url>
     <url>
-        <loc>https://anemone.pages.dev/journal/</loc>
+        <loc>aaron404.github.io/blog-site/journal/</loc>
         <lastmod>2024-06-20</lastmod>
     </url>
     <url>
-        <loc>https://anemone.pages.dev/tags/</loc>
+        <loc>aaron404.github.io/blog-site/tags/</loc>
     </url>
 </urlset>
